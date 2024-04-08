@@ -5,9 +5,9 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const HeroBanner = () => {
   return (
-    <div className="relative mt-10"> {/* Adding mt-4 class for margin-top */}
+    <div className="relative " style={{marginTop:"62px"}}> 
       <img src={banner} alt="Hero Banner" className="w-full" />
-      <div className="absolute bottom-4 left-4">
+      <div className="absolute inset-x-0 bottom-0 bg-gray-900 bg-opacity-50 py-4 px-6 sm:px-12 flex justify-between items-center">
         <button className="bg-blue-500 text-white py-2 px-4 rounded-md mr-4">
           Shop Now
           <FontAwesomeIcon icon={faShoppingCart} className="ml-2" />

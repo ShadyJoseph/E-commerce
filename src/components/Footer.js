@@ -6,9 +6,9 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left w-full">
-          <div className="text-center md:text-left">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left">
+          <div className="text-center md:text-left"> {/* Center content for small screens */}
             <p className="text-lg font-bold mb-2">Contact Us</p>
             <div className="mb-2">
               <p className="flex items-center">
@@ -23,7 +23,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="text-center md:text-left">
+          <div>
             <p className="text-lg font-bold mb-2">GET IN TOUCH</p>
             <div className="mb-1">
               <p>About us</p>
@@ -35,7 +35,7 @@ const Footer = () => {
               <p>Terms and Conditions</p>
             </div>
           </div>
-          <div className="text-center md:text-left">
+          <div>
             <p className="text-lg font-bold mb-2">Social Media</p>
             <div className="mb-1">
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">

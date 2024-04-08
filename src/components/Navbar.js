@@ -8,6 +8,7 @@ import Logo from '../assets/images/Logo.png';
 const Navbar = () => {
   // State for managing search input
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Function to handle search input change
   const handleSearchInputChange = (e) => {
@@ -19,6 +20,11 @@ const Navbar = () => {
     e.preventDefault();
     console.log('Search query:', searchQuery);
     setSearchQuery('');
+  };
+
+  // Function to toggle mobile menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -37,7 +43,7 @@ const Navbar = () => {
             <Link to="/kids" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Kids</Link>
           </div>
           <div className="flex items-center">
-            <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <form onSubmit={handleSearchSubmit} className="hidden sm:flex items-center">
               <input
                 type="text"
                 placeholder="Search..."
@@ -52,17 +58,26 @@ const Navbar = () => {
             <Link to="/cart" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">
               <img src={cart} alt="Cart" className="h-8 w-8" /> {/* Making the cart icon bigger */}
             </Link>
+            {/* Mobile Menu Icon */}
+            <button
+              onClick={toggleMobileMenu}
+              className="sm:hidden text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+            >
+              ☰
+            </button>
           </div>
         </div>
       </div>
       {/* Responsive mobile menu */}
-      <div className="sm:hidden" id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link to="/men" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Men</Link>
-          <Link to="/women" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Women</Link>
-          <Link to="/kids" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Kids</Link>
+      {isMobileMenuOpen && (
+        <div className="sm:hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link to="/men" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Men</Link>
+            <Link to="/women" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Women</Link>
+            <Link to="/kids" className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Kids</Link>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
