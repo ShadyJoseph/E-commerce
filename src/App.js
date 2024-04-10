@@ -9,8 +9,10 @@ import Women from '../src/pages/Women';
 import Kids from '../src/pages/Kids';
 import Cart from '../src/pages/Cart';
 import CheckOut from './pages/CheckOut';
+import { CartProvider } from "./CartContext";
 function App() {
   return (
+    <CartProvider>
     <div>
       <Navbar />
       <Routes>
@@ -23,6 +25,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
+    </CartProvider>
   );
 }
 
