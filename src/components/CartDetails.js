@@ -3,7 +3,11 @@ import { useCart } from '../CartContext';
 import { Link } from "react-router-dom";
 
 const CartDetails = () => {
-  const { state: { cart } } = useCart();
+  const { state: { cart }, removeFromCart } = useCart();
+
+  const handleRemoveFromCart = (itemId) => {
+    removeFromCart(itemId);
+  };
 
   return (
     <div className="flex justify-center items-center mt-8">
@@ -18,6 +22,12 @@ const CartDetails = () => {
                   <h3 className="text-gray-800 font-bold">{item.name}</h3>
                   <p className="text-gray-600">${item.price}</p>
                 </div>
+                <button
+                  onClick={() => handleRemoveFromCart(item.id)}
+                  className="ml-auto px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600"
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
