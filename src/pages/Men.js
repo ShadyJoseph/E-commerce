@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom"; 
 import { data } from "../database/Data";
-import { useCart } from "../CartContext";
-import Loader from "../components/Loader"; // Assuming you have a Loader component
+import Loader from "../components/Loader"; 
 
 const Men = () => {
-  const { addToCart } = useCart();
   const [menClothing, setMenClothing] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate fetching data
     setTimeout(() => {
       setMenClothing(data.clothing.filter((item) => item.category === "men"));
       setLoading(false);
-    }, 1000); // Adjust the timeout as needed
+    }, 1000); 
   }, []);
 
-  const handleAddToCart = (item) => {
-    addToCart(item);
-  };
 
   return (
     <div style={{ marginTop: "62px" }}>
@@ -56,12 +50,6 @@ const Men = () => {
                       ${item.price}
                     </p>
                   </div>
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
-                    onClick={() => handleAddToCart(item)}
-                  >
-                    Add to Cart
-                  </button>
                 </Link>
               ))}
             </div>

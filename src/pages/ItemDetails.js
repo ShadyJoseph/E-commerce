@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { data } from '../database/Data';
 import Loader from '../components/Loader';
+import { useCart } from '../CartContext'; 
 
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [itemDetails, setItemDetails] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const selectedItem = data.clothing.find(item => item.id === parseInt(itemId));
@@ -15,6 +17,10 @@ const ItemDetails = () => {
   if (!itemDetails) {
     return <Loader />;
   }
+
+  const handleAddToCart = () => {
+    addToCart(itemDetails); 
+  };
 
   return (
     <div className="container mx-auto px-4"style={{marginTop:"70px",marginBottom:"50px"}}>
@@ -42,6 +48,12 @@ const ItemDetails = () => {
               ))}
             </ul>
           </div>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={handleAddToCart} 
+          >
+            Add to Cart
+          </button>
           <p className="text-lg font-semibold text-gray-800">Material: {itemDetails.material}</p>
           <p className="text-lg font-semibold text-gray-800">Brand: {itemDetails.brand}</p>
         </div>
