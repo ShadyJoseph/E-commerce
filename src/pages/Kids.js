@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import { data } from "../database/Data";
 import { useCart } from "../CartContext";
 import Loader from "../components/Loader";
@@ -32,12 +33,12 @@ const Kids = () => {
           ) : (
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {kidsClothing.map((item) => (
-                <div key={item.id} className="group relative">
+                <Link to={`/ItemDetails/${item.id}`} key={item.id} className="group relative">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full transition-transform duration-300 ease-in-out transform group-hover:scale-110"
                     />
                   </div>
                   <div className="mt-4 flex justify-between">
@@ -60,7 +61,7 @@ const Kids = () => {
                   >
                     Add to Cart
                   </button>
-                </div>
+                </Link>
               ))}
             </div>
           )}

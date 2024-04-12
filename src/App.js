@@ -10,6 +10,7 @@ import Kids from '../src/pages/Kids';
 import Cart from '../src/pages/Cart';
 import CheckOut from './pages/CheckOut';
 import { CartProvider } from "./CartContext";
+import ItemDetails from './pages/ItemDetails';
 function App() {
   return (
     <CartProvider>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/kids" element={<Kids/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/CheckOut" element={<CheckOut/>}/>
+        <Route path="/itemDetails/:itemId" element={<ItemDetails/>}/>
       </Routes>
       <Footer />
     </div>
