@@ -1,9 +1,12 @@
-import React from 'react';
-import { useCart } from '../CartContext';
+import React from "react";
+import { useCart } from "../CartContext";
 import { Link } from "react-router-dom";
 
 const CartDetails = () => {
-  const { state: { cart }, removeFromCart } = useCart();
+  const {
+    state: { cart },
+    removeFromCart,
+  } = useCart();
 
   const handleRemoveFromCart = (itemId) => {
     removeFromCart(itemId);
@@ -17,10 +20,16 @@ const CartDetails = () => {
             <h2 className="text-2xl font-bold mb-2">Shopping Cart</h2>
             {cart.map((item) => (
               <div key={item.id} className="flex items-center mb-4">
-                <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-16 h-16 object-cover rounded-md mr-4"
+                />
                 <div>
                   <h3 className="text-gray-800 font-bold">{item.name}</h3>
                   <p className="text-gray-600">${item.price}</p>
+                  <p className="text-gray-600">Size: {item.size}</p>{" "}
+                  <p className="text-gray-600">Color: {item.color}</p>{" "}
                 </div>
                 <button
                   onClick={() => handleRemoveFromCart(item.id)}
@@ -34,7 +43,10 @@ const CartDetails = () => {
           <div className="border-t border-gray-200 px-6 py-4">
             <div className="flex justify-between text-base font-medium text-gray-900">
               <p>Subtotal</p>
-              <p>${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}</p>
+              <p>
+                $
+                {cart.reduce((total, item) => total + item.price, 0).toFixed(2)}
+              </p>
             </div>
             <p className="mt-0.5 text-sm text-gray-500">
               Shipping and taxes calculated at checkout.
