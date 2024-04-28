@@ -14,10 +14,9 @@ import ItemDetails from './pages/ItemDetails';
 function App() {
   return (
     <CartProvider>
-    <div>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/" element={<Home/>}  />
         <Route path="/men" element={<Men/>} />
         <Route path="/women" element={<Women/>} />
         <Route path="/kids" element={<Kids/>} />
@@ -26,7 +25,6 @@ function App() {
         <Route path="/itemDetails/:itemId" element={<ItemDetails/>}/>
       </Routes>
       <Footer />
-    </div>
     </CartProvider>
   );
 }

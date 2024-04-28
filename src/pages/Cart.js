@@ -2,7 +2,7 @@ import React from 'react'
 import CartDetails from '../components/CartDetails'
 const Cart = () => {
   return (
-    <div style={{marginTop:"62px"}}>
+    <div style={{ marginTop: "115px" }}>
       <CartDetails />
     </div>
   )
