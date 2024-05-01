@@ -14,10 +14,10 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-center">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-center">
             <p className="text-lg font-bold mb-2">Contact Us</p>
             <div className="mb-2">
-              <p className="flex items-center">
+              <p className="flex items-center justify-center">
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
                 <span
                   className={`${
@@ -28,8 +28,8 @@ const Footer = () => {
                 </span>
               </p>
             </div>
-            <div>
-              <p className="flex items-center">
+            <div className="mb-2">
+              <p className="flex items-center justify-center">
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="me-2" />
                 <span
                   className={`${
@@ -41,6 +41,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
+
           <div>
             <p className="text-lg font-bold mb-2">GET IN TOUCH</p>
             <div className="mb-1">
