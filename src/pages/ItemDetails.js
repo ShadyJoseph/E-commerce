@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { data } from "../database/Data";
 import Loader from "../components/Loader";
-import { useCart } from "../CartContext";
+import { useCart } from "../Context";
 
 const ItemDetails = () => {
   const { itemId } = useParams();

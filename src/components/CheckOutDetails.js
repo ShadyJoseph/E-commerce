@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { useTheme } from '../Context';
 const CheckOutDetails = () => {
+  const { isDarkMode } = useTheme();
   return (
-    <div className="min-h-screen bg-gray-100" style={{marginTop:"62px"}}>
+    <div className={`min-h-screen bg-gray-100 mt-[98px] ${isDarkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white shadow sm:rounded-lg">
           <div className="px-4 py-5 sm:p-6">

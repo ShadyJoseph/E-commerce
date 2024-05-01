@@ -44,3 +44,30 @@ export const CartProvider = ({ children }) => {
 export const useCart = () => {
   return useContext(CartContext);
 };
+
+const ThemeContext = createContext();
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_THEME':
+      return { ...state, isDarkMode: !state.isDarkMode };
+    default:
+      return state;
+  }
+};
+
+export const ThemeProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(themeReducer, { isDarkMode: false });
+
+  const toggleTheme = () => {
+    dispatch({ type: 'TOGGLE_THEME' });
+  };
+
+  return (
+    <ThemeContext.Provider value={{ ...state, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export const useTheme = () => useContext(ThemeContext);
