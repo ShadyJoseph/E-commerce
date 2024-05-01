@@ -33,8 +33,8 @@ const ItemDetails = () => {
 
   return (
     <div
-      className="container mx-auto px-4"
-      style={{ marginTop: "70px", marginBottom: "50px" }}
+      className="container mx-auto px-4 mt-[115px]"
+      style={{  marginBottom: "50px" }}
     >
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div className="w-full md:w-1/2">

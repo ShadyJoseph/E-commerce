@@ -6,9 +6,9 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left">
-          <div className="text-center md:text-left"> {/* Center content for small screens */}
+      <div className="container mx-auto px-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-center">
+          <div className="text-center md:text-left"> 
             <p className="text-lg font-bold mb-2">Contact Us</p>
             <div className="mb-2">
               <p className="flex items-center">

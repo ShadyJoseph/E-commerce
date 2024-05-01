@@ -11,7 +11,7 @@ const HeroBanner = () => {
     });
   };
   return (
-    <div className="relative " style={{ marginTop: "115px" }}>
+    <div className="relative ">
       
       <img src={banner} alt="Hero Banner" className="w-full" />
       <div
