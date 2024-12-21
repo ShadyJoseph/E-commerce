@@ -46,7 +46,7 @@ export const data = {
       colors: ["Blue", "Black"],
       sizes: ["S", "M", "L", "XL"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "Nike"
     },
     {
       id: 5,
@@ -58,7 +58,7 @@ export const data = {
       colors: ["Orange", "White"],
       sizes: ["XS", "S", "M"],
       material: "Cotton",
-      brand: "Adidas"
+      brand: "Nike"
     },
     {
       id: 6,
@@ -70,7 +70,7 @@ export const data = {
       colors: ["Black", "Red"],
       sizes: ["2T", "3T", "4T", "5T"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "Nike"
     },
     {
       id: 7,
@@ -82,7 +82,7 @@ export const data = {
       colors: ["White", "Gray", "Black"],
       sizes: ["S", "M", "L", "XL"],
       material: "Cotton",
-      brand: "Adidas"
+      brand: "Puma"
     },
     {
       id: 8,
@@ -94,7 +94,7 @@ export const data = {
       colors: ["Red", "Blue"],
       sizes: ["XS", "S", "M", "L"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "Puma"
     },
     {
       id: 9,
@@ -106,7 +106,7 @@ export const data = {
       colors: ["Purple", "Black"],
       sizes: ["2T", "3T", "4T", "5T"],
       material: "Cotton",
-      brand: "Adidas"
+      brand: "Puma"
     },
     {
       id: 10,
@@ -118,7 +118,7 @@ export const data = {
       colors: ["Blue", "Black"],
       sizes: ["S", "M", "L", "XL"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "New balance"
     },
     {
       id: 11,
@@ -130,7 +130,7 @@ export const data = {
       colors: ["Black", "White"],
       sizes: ["XS", "S", "M", "L"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "New balance"
     },
     {
       id: 12,
@@ -142,7 +142,7 @@ export const data = {
       colors: ["Blue", "Black"],
       sizes: ["2T", "3T", "4T", "5T"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "New balance"
     },
     {
       id: 13,
@@ -154,7 +154,7 @@ export const data = {
       colors: ["White", "Blue"],
       sizes: ["S", "M", "L", "XL"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "CK"
     },
     {
       id: 14,
@@ -166,7 +166,7 @@ export const data = {
       colors: ["Blue", "Black"],
       sizes: ["XS", "S", "M", "L"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "CK"
     },
     {
       id: 15,
@@ -178,7 +178,7 @@ export const data = {
       colors: ["Black", "Blue"],
       sizes: ["2T", "3T", "4T", "5T"],
       material: "Polyester",
-      brand: "Adidas"
+      brand: "CK"
     },
   ]
 };

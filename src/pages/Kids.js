@@ -49,6 +49,10 @@ const Kids = () => {
                       ></span>
                       {item.name}
                     </h3>
+                    {/* Display the brand name */}
+                    <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Brand: {item.brand}
+                    </p>
                   </div>
                   <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
                     ${item.price}

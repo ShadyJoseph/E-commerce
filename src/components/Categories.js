@@ -8,54 +8,62 @@ import { useTheme } from '../Context';
 const Categories = () => {
   const { isDarkMode } = useTheme();
 
+  const themeClasses = {
+    background: isDarkMode ? 'bg-gray-900' : 'bg-gray-50',
+    textPrimary: isDarkMode ? 'text-white' : 'text-gray-900',
+    textSecondary: isDarkMode ? 'text-gray-400' : 'text-gray-700',
+    cardBackground: isDarkMode ? 'bg-gray-800' : 'bg-white',
+    buttonGradient: isDarkMode
+      ? 'bg-gradient-to-r from-blue-600 to-blue-800'
+      : 'bg-gradient-to-r from-blue-400 to-blue-600',
+    hoverEffect: 'hover:scale-105 hover:shadow-lg',
+  };
+
   return (
-    <div className={`bg-${isDarkMode ? 'gray-700' : 'gray-100'}`}>
+    <div className={`${themeClasses.background} py-16`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-8`}>Collections</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative">
-              <Link to="/men">
-                <div className="relative h-80 overflow-hidden rounded-lg bg-white">
-                  <img src={Man} alt="Man Collection" className="h-full w-full object-cover object-center" />
-                </div>
-                <div className="p-4">
-                  <h3 className={`text-lg font-semibold ${isDarkMode ? 'text-gray-200' : 'text-gray-900'} mb-2`}>Men</h3>
-                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>Excel and express yourself when and where you can</p>
-                  <button className={`bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 ${isDarkMode ? 'hover:bg-blue-700' : ''}`}>
-                    Shop Now
-                  </button>
-                </div>
-              </Link>
-            </div>
-            <div className="group relative">
-              <Link to="/women">
-                <div className="relative h-80 overflow-hidden rounded-lg bg-white">
-                  <img src={Woman} alt="Woman Collection" className="h-full w-full object-cover object-center" />
-                </div>
-                <div className="p-4">
-                  <h3 className={`text-lg font-semibold ${isDarkMode ? 'text-gray-200' : 'text-gray-900'} mb-2`}>Women</h3>
-                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>Excel and express yourself when and where you can</p>
-                  <button className={`bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 ${isDarkMode ? 'hover:bg-blue-700' : ''}`}>
-                    Shop Now
-                  </button>
-                </div>
-              </Link>
-            </div>
-            <div className="group relative">
-              <Link to="/kids">
-                <div className="relative h-80 overflow-hidden rounded-lg bg-white">
-                  <img src={Kid} alt="Kid Collection" className="h-full w-full object-cover object-center" />
-                </div>
-                <div className="p-4">
-                  <h3 className={`text-lg font-semibold ${isDarkMode ? 'text-gray-200' : 'text-gray-900'} mb-2`}>Kids</h3>
-                  <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>Get your kids outside and exploring with confidence in children's clothes</p>
-                  <button className={`bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 ${isDarkMode ? 'hover:bg-blue-700' : ''}`}>
-                    Shop Now
-                  </button>
-                </div>
-              </Link>
-            </div>
+        <div className="mx-auto max-w-2xl sm:py-16 lg:max-w-none">
+          <h2 className={`text-4xl font-extrabold ${themeClasses.textPrimary} mb-12 text-center`}>
+            Explore Our Collections
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {[
+              { img: Man, title: 'Men', link: '/men', desc: 'Redefine style and confidence.' },
+              { img: Woman, title: 'Women', link: '/women', desc: 'Elegance with a modern twist.' },
+              { img: Kid, title: 'Kids', link: '/kids', desc: 'Fun and playful fashion.' },
+            ].map((category, index) => (
+              <div
+                key={index}
+                className={`group relative overflow-hidden rounded-xl shadow-md transition-transform duration-300 ${themeClasses.cardBackground} ${themeClasses.hoverEffect}`}
+              >
+                <Link to={category.link}>
+                  {/* Image Container */}
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={category.img}
+                      alt={`${category.title} Collection`}
+                      className="h-full w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                  {/* Card Content */}
+                  <div className="p-6 text-center">
+                    <h3 className={`text-2xl font-semibold ${themeClasses.textPrimary} mb-3`}>
+                      {category.title}
+                    </h3>
+                    <p className={`text-base ${themeClasses.textSecondary} mb-6`}>
+                      {category.desc}
+                    </p>
+                    <button
+                      className={`py-3 px-8 text-white rounded-lg font-medium shadow-md transform transition-all duration-300 hover:brightness-125 ${themeClasses.buttonGradient}`}
+                    >
+                      Shop Now
+                    </button>
+                  </div>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ const Alert = ({ isDarkMode }) => {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 words">
             <p className={`text-center text-sm leading-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              <strong className="font-semibold">50% off!</strong>
+              <strong className="font-semibold"><strong >Adidas</strong> is making 50% off</strong>
               <svg
                 viewBox="0 0 2 2"
                 className="mx-2 inline h-0.5 w-0.5 fill-current"
@@ -44,7 +44,7 @@ const Alert = ({ isDarkMode }) => {
               >
                 <circle cx="1" cy="1" r="1" />
               </svg>
-              Order Now and get 50% off your purchase.
+              Order Now and get 50% off your purchase on all<strong> Adidas</strong> items.
             </p>
             <button
               onClick={scrollToContent}

@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
               <img className="h-8 w-8" src={Logo} alt="Logo" />
-              <span className={`ml-2 text-${isDarkMode ? 'white' : 'gray-900'} text-lg font-semibold`}>Your Brand</span>
+              <span className={`ml-2 text-${isDarkMode ? 'white' : 'gray-900'} text-lg font-semibold`}>The Outlet</span>
             </Link>
           </div>
           <div className="flex items-center">

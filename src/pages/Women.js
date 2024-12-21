@@ -34,7 +34,7 @@ const Women = () => {
               <Link
                 to={`/itemDetails/${item.id}`}
                 key={item.id}
-                className="group relative"
+                className={`group relative ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
               >
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
@@ -45,13 +45,14 @@ const Women = () => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0"
-                      ></span>
+                    <h3 className={`text-sm ${isDarkMode ? 'text-white' : 'text-gray-700'}`}>
+                      <span aria-hidden="true" className="absolute inset-0"></span>
                       {item.name}
                     </h3>
+                    {/* Display the brand name */}
+                    <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                      Brand: {item.brand}
+                    </p>
                   </div>
                   <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
                     ${item.price}

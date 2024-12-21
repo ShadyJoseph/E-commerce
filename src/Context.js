@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 
+// Cart context
 const CartContext = createContext();
 
 const initialState = {
@@ -41,10 +42,9 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export const useCart = () => {
-  return useContext(CartContext);
-};
+export const useCart = () => useContext(CartContext);
 
+// Theme context
 const ThemeContext = createContext();
 
 const themeReducer = (state, action) => {
