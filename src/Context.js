@@ -57,7 +57,7 @@ const themeReducer = (state, action) => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(themeReducer, { isDarkMode: false });
+  const [state, dispatch] = useReducer(themeReducer, { isDarkMode: true });
 
   const toggleTheme = () => {
     dispatch({ type: 'TOGGLE_THEME' });
