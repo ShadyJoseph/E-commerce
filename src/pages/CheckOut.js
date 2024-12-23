@@ -3,7 +3,7 @@ import CheckOutDetails from '../components/CheckOutDetails';
 
 const CheckOut = () => {
   return (
-    <div className='mt-[95px]'>
+    <div className='mt-[35px] mb-[50px]'>
       <CheckOutDetails />
     </div>
   );

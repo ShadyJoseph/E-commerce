@@ -4,7 +4,7 @@ import Categories from '../components/Categories';
 
 const Home = () => {
   return (
-    <div className="mt-[95px]">
+    <div className="mt-[35px]">
       <HeroBanner />
       <Categories />
     </div>

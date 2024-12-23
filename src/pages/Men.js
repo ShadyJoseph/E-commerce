@@ -11,7 +11,7 @@ const Men = () => {
 
   // Define reusable theme-based styles
   const themeClasses = {
-    container: isDarkMode ? "bg-gray-700 text-white" : "bg-white text-gray-900",
+    container: isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900",
     cardHover: isDarkMode ? "hover:bg-gray-600" : "hover:bg-gray-100",
     textPrimary: isDarkMode ? "text-white" : "text-gray-700",
     textSecondary: isDarkMode ? "text-gray-400" : "text-gray-600",
@@ -22,12 +22,12 @@ const Men = () => {
     setTimeout(() => {
       setMenClothing(data.clothing.filter((item) => item.category === "men"));
       setLoading(false);
-    }, 1000);
+    }, 0);
   }, []);
 
   return (
-    <div className={`mt-[70px] ${themeClasses.container}`}>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className={`${themeClasses.container}`}>
+      <div className="mx-auto max-w-2xl px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight">Men</h2>
 
         {loading ? (

@@ -6,7 +6,7 @@ const Cart = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className={`mt-[97px] ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`mt-[35px] mb-[50px] ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       <CartDetails />
     </div>
   );

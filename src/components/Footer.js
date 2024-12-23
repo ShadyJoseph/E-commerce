@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { useTheme } from "../Context";
+
 const Footer = () => {
   const { isDarkMode } = useTheme();
 
   return (
     <footer
-      className={`py-6 ${
+      className={` bottom-0 left-0 w-full py-4 ${
         isDarkMode ? "bg-gray-900 text-white" : "bg-gray-200 text-gray-900"
-      }`}
+      } z-10`}
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-center">
@@ -96,7 +97,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="text-center mt-6 opacity-50">
+        <div className="text-center mt-6 opacity-75">
           <p className="text-sm text-gray-600">
             &copy; 2024 Your Company, Inc. All rights reserved.
           </p>
