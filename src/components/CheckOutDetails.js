@@ -8,14 +8,16 @@ const CheckOutDetails = () => {
     textPrimary = "#000000", 
     textMuted = "#6c757d", 
     primary = "#4f46e5",  
-    borderMuted = "#d1d5db", 
     textOnPrimary = "#ffffff" 
   } = useTheme();
 
   const formFieldStyle = {
-    backgroundColor: isDarkMode ? "#374151" : "#ffffff",
-    borderColor: isDarkMode ? "#4b5563" : borderMuted,
+    backgroundColor: isDarkMode ? "#374151" : "#ffffff", 
+    borderColor: isDarkMode ? "#4b5563" : "#e5e7eb", // Lighter border color for light mode
     color: isDarkMode ? textMuted : textPrimary,
+    borderWidth: "1px",
+    borderRadius: "0.375rem", // Rounded borders
+    padding: "0.75rem 1rem", // Slightly more padding for a comfortable input size
   };
 
   const labelStyle = {
@@ -24,7 +26,7 @@ const CheckOutDetails = () => {
 
   return (
     <div
-      className="min-h-screen mt-[98px] py-12 px-6"
+      className="min-h-screen mt-4 py-12 px-6"
       style={{ backgroundColor: isDarkMode ? "#1f2937" : background, color: textPrimary }}
     >
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8" style={{ backgroundColor: isDarkMode ? "#1e293b" : "#ffffff" }}>
@@ -45,7 +47,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="first_name"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -56,7 +58,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="last_name"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -67,7 +69,7 @@ const CheckOutDetails = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -78,7 +80,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="street_address"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -89,7 +91,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="city"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -100,7 +102,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="state"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -111,7 +113,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="zip"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -131,7 +133,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="card_number"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -142,7 +144,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="expiry_date"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>
@@ -153,7 +155,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   id="cvv"
-                  className="w-full px-4 py-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full"
                   style={formFieldStyle}
                 />
               </div>

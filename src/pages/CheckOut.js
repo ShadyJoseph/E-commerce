@@ -3,7 +3,7 @@ import CheckOutDetails from '../components/CheckOutDetails';
 
 const CheckOut = () => {
   return (
-    <div className='mt-[35px]'>
+    <div>
       <CheckOutDetails />
     </div>
   );

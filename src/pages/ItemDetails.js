@@ -10,21 +10,23 @@ const ItemDetails = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const { addToCart } = useCart();
-  const { theme = {} } = useTheme(); // Default to empty object to avoid undefined errors
+  const { isDarkMode } = useTheme();
 
-  // Default theme properties if undefined
-  const {
-    background = "#ffffff",
-    textPrimary = "#000000",
-    textMuted = "#6c757d",
-    primary = "#007bff",
-    accent = "#ffc107",
-    borderMuted = "#dee2e6",
-    backgroundSecondary = "#f8f9fa",
-    disabledBackground = "#e9ecef",
-    disabledText = "#adb5bd",
-    textOnPrimary = "#ffffff",
-  } = theme;
+  const themeClasses = {
+    container: isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900",
+    cardHover: isDarkMode ? "hover:bg-gray-600" : "hover:bg-gray-100",
+    textPrimary: isDarkMode ? "text-white" : "text-gray-900",
+    textMuted: isDarkMode ? "text-gray-400" : "text-gray-600",
+    primary: isDarkMode ? "#1e40af" : "#007bff", // Dark and light theme primary colors
+    accent: isDarkMode ? "#fbbf24" : "#ffc107", // Dark and light theme accent colors
+    borderMuted: isDarkMode ? "#4b5563" : "#dee2e6",
+    backgroundSecondary: isDarkMode ? "#374151" : "#f8f9fa",
+    disabledBackground: isDarkMode ? "#525252" : "#e9ecef", // Update for light mode
+    disabledText: isDarkMode ? "#9ca3af" : "#adb5bd", // Update for light mode
+    textOnPrimary: "#ffffff",
+    sizeBackground: isDarkMode ? "#2d3748" : "#f3f4f6", // Lighter background for sizes in light mode
+    sizeText: isDarkMode ? "#ffffff" : "#2d3748", // Darker text for sizes in light mode
+  };
 
   useEffect(() => {
     const selectedItem = data.clothing.find(
@@ -36,11 +38,10 @@ const ItemDetails = () => {
   if (!itemDetails) {
     return (
       <div
-        className="flex flex-col justify-center items-center h-screen"
-        style={{ backgroundColor: background, color: textMuted }}
+        className={`flex flex-col justify-center items-center h-screen ${themeClasses.container}`}
       >
         <Loader />
-        <p className="text-lg mt-4">Item not found.</p>
+        <p className="text-lg mt-4">{`Item not found.`}</p>
       </div>
     );
   }
@@ -64,7 +65,7 @@ const ItemDetails = () => {
       }`}
       style={{
         backgroundColor: color,
-        borderColor: selectedColor === color ? primary : borderMuted,
+        borderColor: selectedColor === color ? themeClasses.primary : themeClasses.borderMuted,
       }}
       onClick={() => setSelectedColor(color)}
       aria-selected={selectedColor === color}
@@ -79,8 +80,8 @@ const ItemDetails = () => {
         selectedSize === size ? "scale-105" : ""
       }`}
       style={{
-        backgroundColor: selectedSize === size ? primary : backgroundSecondary,
-        color: selectedSize === size ? textOnPrimary : textPrimary,
+        backgroundColor: selectedSize === size ? themeClasses.primary : themeClasses.sizeBackground,
+        color: selectedSize === size ? themeClasses.textOnPrimary : themeClasses.sizeText,
       }}
       onClick={() => setSelectedSize(size)}
       aria-selected={selectedSize === size}
@@ -91,16 +92,13 @@ const ItemDetails = () => {
   );
 
   return (
-    <div
-      className="flex flex-col min-h-screen"
-      style={{ backgroundColor: background, color: textPrimary }}
-    >
+    <div className={`flex flex-col min-h-screen ${themeClasses.container}`}>
       <div className="container mx-auto px-4 mt-14 max-w-4xl flex-grow">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between">
           {/* Image Section */}
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
             <img
-              src={itemDetails.image}
+              src={itemDetails.image || "/placeholder.jpg"}  // Fallback for missing images
               alt={itemDetails.name}
               className="w-full h-auto rounded-lg shadow-lg transform transition hover:scale-105"
             />
@@ -110,14 +108,14 @@ const ItemDetails = () => {
           <div className="w-full md:w-2/3 md:ml-8">
             <h2
               className="text-3xl font-extrabold mb-6"
-              style={{ color: primary }}
+              style={{ color: themeClasses.primary }}
             >
               {itemDetails.name}
             </h2>
             <p className="text-xl font-semibold mb-4">
-              Price: <span style={{ color: accent }}>${itemDetails.price}</span>
+              Price: <span style={{ color: themeClasses.accent }}>${itemDetails.price}</span>
             </p>
-            <p className="text-base mb-6">{itemDetails.description}</p>
+            <p className={`text-base mb-6 ${themeClasses.textMuted}`}>{itemDetails.description}</p>
 
             {/* Colors */}
             <div className="mb-8">
@@ -138,13 +136,13 @@ const ItemDetails = () => {
             {/* Add to Cart Button */}
             <button
               className={`w-full font-bold py-4 rounded-lg shadow-md transition-all transform ${
-                isAddToCartDisabled ? "opacity-50" : "hover:scale-105"
+                isAddToCartDisabled ? "opacity-50 cursor-not-allowed" : "hover:scale-105"
               }`}
               style={{
                 backgroundColor: isAddToCartDisabled
-                  ? disabledBackground
-                  : primary,
-                color: isAddToCartDisabled ? disabledText : textOnPrimary,
+                  ? themeClasses.disabledBackground
+                  : themeClasses.primary,
+                color: isAddToCartDisabled ? themeClasses.disabledText : themeClasses.textOnPrimary,
               }}
               onClick={handleAddToCart}
               disabled={isAddToCartDisabled}
@@ -155,13 +153,12 @@ const ItemDetails = () => {
             {/* Additional Information */}
             <div
               className="mt-8 border-t pt-6"
-              style={{ borderColor: borderMuted }}
+              style={{ borderColor: themeClasses.borderMuted }}
             >
-              <p className="text-lg font-medium">
-                <span className="font-semibold">Material:</span>{" "}
-                {itemDetails.material}
+              <p className={`text-lg font-medium ${themeClasses.textMuted}`}>
+                <span className="font-semibold">Material:</span> {itemDetails.material}
               </p>
-              <p className="text-lg font-medium">
+              <p className={`text-lg font-medium ${themeClasses.textMuted}`}>
                 <span className="font-semibold">Brand:</span> {itemDetails.brand}
               </p>
             </div>

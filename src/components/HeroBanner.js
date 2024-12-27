@@ -29,7 +29,7 @@ const HeroBanner = () => {
     <div className="relative w-full h-screen overflow-hidden">
       {/* Slide Container */}
       <div
-        className="flex transition-transform duration-1000 ease-in-out"
+        className="flex transition-transform duration-800 ease-in-out"
         style={{
           width: `${banners.length * 100}%`,
           transform: `translateX(-${currentIndex * 100}vw)`,
@@ -51,27 +51,27 @@ const HeroBanner = () => {
         </h1>
         <button
           onClick={onShopClick}
-          className="bg-blue-600 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 flex items-center transition-all duration-300 transform hover:scale-105"
+          className="bg-blue-600 text-white py-3 px-8 rounded-lg shadow-xl hover:bg-blue-700 flex items-center transition-all duration-300 transform hover:scale-105"
         >
           Shop Now
           <FontAwesomeIcon icon={faShoppingCart} className="ml-3" />
         </button>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Previous & Next Buttons */}
       <button
-        className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-60 text-white p-4 rounded-full hover:bg-gray-600 transition-all duration-300"
+        className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-5 rounded-full opacity-60 hover:opacity-100 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 ease-in-out shadow-lg hover:scale-110"
         onClick={handlePrev}
         aria-label="Previous Slide"
       >
-        <FontAwesomeIcon icon={faArrowLeft} />
+        <FontAwesomeIcon icon={faArrowLeft} className="text-xl sm:text-2xl" />
       </button>
       <button
-        className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-60 text-white p-4 rounded-full hover:bg-gray-600 transition-all duration-300"
+        className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-5 rounded-full opacity-60 hover:opacity-100 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 ease-in-out shadow-lg hover:scale-110"
         onClick={handleNext}
         aria-label="Next Slide"
       >
-        <FontAwesomeIcon icon={faArrowRight} />
+        <FontAwesomeIcon icon={faArrowRight} className="text-xl sm:text-2xl" />
       </button>
 
       {/* Slide Indicators */}

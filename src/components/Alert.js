@@ -9,7 +9,10 @@ const Alert = ({ isDarkMode }) => {
   return (
     <div>
       {true && (
-        <div className={`relative isolate flex flex-col justify-center items-center h-[35px] overflow-hidden ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} px-6 py-2.5 sm:px-3.5 sm:before:flex-1`}>
+        <div
+          className={`relative isolate flex flex-col justify-center items-center h-[30px] sm:h-[45px] md:h-[40px] overflow-hidden ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} px-6 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-6`}
+        >
+          {/* Background gradient effect */}
           <div
             className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
             aria-hidden="true"
@@ -34,9 +37,13 @@ const Alert = ({ isDarkMode }) => {
               }}
             ></div>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 words">
-            <p className={`text-center text-sm leading-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              <strong className="font-semibold"><strong >Adidas</strong> is making 50% off</strong>
+
+          {/* Main content */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center sm:text-left md:gap-x-6 md:gap-y-3">
+            <p
+              className={`text-sm sm:text-base md:text-lg leading-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+            >
+              <strong className="font-semibold">Adidas</strong> is making 50% off
               <svg
                 viewBox="0 0 2 2"
                 className="mx-2 inline h-0.5 w-0.5 fill-current"
@@ -44,11 +51,11 @@ const Alert = ({ isDarkMode }) => {
               >
                 <circle cx="1" cy="1" r="1" />
               </svg>
-              Order Now and get 50% off your purchase on all<strong> Adidas</strong> items.
+              Order Now and get 50% off your purchase on all <strong>Adidas</strong> items.
             </p>
             <button
               onClick={scrollToContent}
-              className={`flex-none rounded-full ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'} px-3.5 py-1 text-sm font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900`}
+              className={`flex-none rounded-full ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'} px-3.5 py-1 text-sm font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 transition-all duration-300 transform sm:px-3 sm:py-1 md:px-4 md:py-2`}
             >
               Order Now <span aria-hidden="true">&darr;</span>
             </button>
